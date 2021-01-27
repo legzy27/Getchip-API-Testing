@@ -1,0 +1,152 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-01-27T16:44:29.780Z",
+    "end": "2021-01-27T16:44:30.714Z",
+    "duration": 934,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d142cc67-ab10-4cea-84c9-b17251780247",
+      "title": "",
+      "fullFile": "cypress/integration/api/REST/Demo.js",
+      "file": "cypress/integration/api/REST/Demo.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "returns JSON",
+          "fullTitle": "returns JSON",
+          "timedOut": null,
+          "duration": 246,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.request('https://www.purgomalum.com/service/json?text=this is some test input').its('headers').its('content-type').should('include', 'application/json');",
+          "err": {},
+          "uuid": "2b98f68c-d675-4204-a326-8c19d1a9f8d1",
+          "parentUUID": "d142cc67-ab10-4cea-84c9-b17251780247",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "POST",
+          "fullTitle": "POST",
+          "timedOut": null,
+          "duration": 477,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "cy.request({\n  method: 'POST',\n  url: 'https://www.purgomalum.com/service/json?text=',\n  body: {\n    \"result\": \"this is some test input\"\n  },\n  headers: {\n    'content-type': 'application/json'\n  }\n}).then(function (response) {\n  expect(response.body).have.property('json');\n  expect(response.body).to.deep.equal({\n    \"result\": \"this is some test input\"\n  });\n});",
+          "err": {
+            "message": "CypressError: `cy.request()` failed on:\n\nhttps://www.purgomalum.com/service/json?text=\n\nThe response we received from your web server was:\n\n  > 405: Method Not Allowed\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://www.purgomalum.com/service/json?text=\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"content-type\": \"application/json\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/6.3.0 Chrome/87.0.4280.141 Electron/11.2.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 36\n}\nBody: {\"result\":\"this is some test input\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 405 - Method Not Allowed\nHeaders: {\n  \"allow\": \"HEAD,GET,OPTIONS\",\n  \"access-control-allow-origin\": \"*\",\n  \"x-cloud-trace-context\": \"324830c9823cea0fb02f2f3465b618f8\",\n  \"date\": \"Wed, 27 Jan 2021 16:44:30 GMT\",\n  \"content-type\": \"text/html\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"0\"\n}\n\n\nhttps://on.cypress.io/request",
+            "estack": "CypressError: `cy.request()` failed on:\n\nhttps://www.purgomalum.com/service/json?text=\n\nThe response we received from your web server was:\n\n  > 405: Method Not Allowed\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://www.purgomalum.com/service/json?text=\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"content-type\": \"application/json\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/6.3.0 Chrome/87.0.4280.141 Electron/11.2.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 36\n}\nBody: {\"result\":\"this is some test input\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 405 - Method Not Allowed\nHeaders: {\n  \"allow\": \"HEAD,GET,OPTIONS\",\n  \"access-control-allow-origin\": \"*\",\n  \"x-cloud-trace-context\": \"324830c9823cea0fb02f2f3465b618f8\",\n  \"date\": \"Wed, 27 Jan 2021 16:44:30 GMT\",\n  \"content-type\": \"text/html\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"0\"\n}\n\n\nhttps://on.cypress.io/request\n    at http://localhost:62511/__cypress/runner/cypress_runner.js:159046:21\n    at tryCatcher (http://localhost:62511/__cypress/runner/cypress_runner.js:10609:23)\n    at Promise._settlePromiseFromHandler (http://localhost:62511/__cypress/runner/cypress_runner.js:8544:31)\n    at Promise._settlePromise (http://localhost:62511/__cypress/runner/cypress_runner.js:8601:18)\n    at Promise._settlePromise0 (http://localhost:62511/__cypress/runner/cypress_runner.js:8646:10)\n    at Promise._settlePromises (http://localhost:62511/__cypress/runner/cypress_runner.js:8726:18)\n    at _drainQueueStep (http://localhost:62511/__cypress/runner/cypress_runner.js:5316:12)\n    at _drainQueue (http://localhost:62511/__cypress/runner/cypress_runner.js:5309:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:62511/__cypress/runner/cypress_runner.js:5325:5)\n    at Async.drainQueues (http://localhost:62511/__cypress/runner/cypress_runner.js:5195:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost:62511/__cypress/tests?p=cypress/integration/api/REST/Demo.js:114:6)",
+            "diff": null
+          },
+          "uuid": "aa041b09-de95-4a2d-808c-32902a8a1a8a",
+          "parentUUID": "d142cc67-ab10-4cea-84c9-b17251780247",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [
+        {
+          "uuid": "1e253143-8837-410d-98ed-8e34d31d7ca1",
+          "title": "HTTP GET Request",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GET",
+              "fullTitle": "HTTP GET Request GET",
+              "timedOut": null,
+              "duration": 163,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'https://www.purgomalum.com/service/json?text=this is some test input'\n});\nexpect(200, {\n  \"result\": \"this is some test input\"\n});",
+              "err": {},
+              "uuid": "0f3a16ca-69a8-4384-98c2-eb2fed60656c",
+              "parentUUID": "1e253143-8837-410d-98ed-8e34d31d7ca1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0f3a16ca-69a8-4384-98c2-eb2fed60656c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 163,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [
+        "2b98f68c-d675-4204-a326-8c19d1a9f8d1"
+      ],
+      "failures": [
+        "aa041b09-de95-4a2d-808c-32902a8a1a8a"
+      ],
+      "pending": [],
+      "skipped": [],
+      "duration": 723,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
